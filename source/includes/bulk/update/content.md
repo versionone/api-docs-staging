@@ -1,4 +1,4 @@
-A single asset can be update.
+A single asset can be updated.
 
 Update the name of Story:1234 to `Updated Story`
 
