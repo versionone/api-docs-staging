@@ -15,6 +15,6 @@ The following example returns an array of tags that match the search term.
   "RegressionTestDetails",
   "RegressionTests",
   "Testboard",
-  "TestSetDetails",
+  "TestSetDetails"
 ]
 ```

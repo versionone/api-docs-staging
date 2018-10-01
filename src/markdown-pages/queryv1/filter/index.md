@@ -8,14 +8,14 @@ Filter on a collection of filter tokens which apply comparison operators to attr
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name",
-        "Owners.@Count"
-    ],
-    "filter": [
-      "Owners.@Count>'2'"
-    ]
+  "from": "Story",
+  "select": [
+    "Name",
+    "Owners.@Count"
+  ],
+  "filter": [
+    "Owners.@Count>'2'"
+  ]
 }
 ```
 

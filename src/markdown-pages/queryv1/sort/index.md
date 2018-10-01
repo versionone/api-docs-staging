@@ -8,17 +8,18 @@ Sort by selection tokens with ascending `+` or descending `-` order.
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name",
-        "Estimate"
-    ],
-    "sort": [
-      "+Name",
-      "-Estimate"
-    ]
+  "from": "Story",
+  "select": [
+    "Name",
+    "Estimate"
+  ],
+  "sort": [
+    "+Name",
+    "-Estimate"
+  ]
 }
 ```
+
 #### HTTP Response
 
 ```json

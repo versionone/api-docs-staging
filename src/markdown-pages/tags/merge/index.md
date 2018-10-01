@@ -14,7 +14,7 @@ The following example will merge multiple tags into a single tag.  It is possibl
 
 ```json
 {
-    "MergeTo" : "Regression Tests",
-    "MergeFrom" : ["RegressionTests", "RegTests"]
+  "MergeTo" : "Regression Tests",
+  "MergeFrom" : ["RegressionTests", "RegTests"]
 }
 ```

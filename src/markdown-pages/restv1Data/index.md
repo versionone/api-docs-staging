@@ -36,25 +36,28 @@ Both creating and updating assets via rest-1.v1 has a POST body structured with 
 The keys are valid Attribute names for a given Asset. The value of each key is valid based on the following:
 
 * *Scalars*: like `Name`:
-```
+
+```json
 {
-    "value": "New Name",
-    "act": "set"
+  "value": "New Name",
+  "act": "set"
 }
 ```
 
 * *Single-value relation*: like `Scope`:
-```
+
+```json
 {
-    "value": "Scope:0",
-    "act": "set"
+  "value": "Scope:0",
+  "act": "set"
 }
 ```
 
-* *Multi-value relations*: like `ChangeSets` take an array. Each element of the array specifies an asset to add or remove from the relation and have the shape:  
-```
+* *Multi-value relations*: like `ChangeSets` take an array. Each element of the array specifies an asset to add or remove from the relation and have the shape:
+
+```json
 [
-    { "idref": "<OidToken>", "act": "add" }
-    { "idref": "<OidToken>", "act": "remove" }
+  { "idref": "<OidToken>", "act": "add" }
+  { "idref": "<OidToken>", "act": "remove" }
 ]
 ```

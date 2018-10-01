@@ -14,12 +14,12 @@ Historical data is kept for all assets, and you may query for the state of asset
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name",
-        "ChangeDateUTC"
-    ],
-    "asof": "2016-01-01"
+  "from": "Story",
+  "select": [
+    "Name",
+    "ChangeDateUTC"
+  ],
+  "asof": "2016-01-01"
 }
 ```
 

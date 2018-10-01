@@ -14,7 +14,7 @@ The following example will allow you to remove tags from every asset they exist 
 
 ```json
 {
-    "MergeTo" : "Regression Tests",
-    "MergeFrom" : ["RegressionTests", "RegTests"]
+  "MergeTo" : "Regression Tests",
+  "MergeFrom" : ["RegressionTests", "RegTests"]
 }
 ```

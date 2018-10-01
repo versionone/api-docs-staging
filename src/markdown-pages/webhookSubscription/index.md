@@ -24,9 +24,9 @@ VersionOne keeps track of any time an Asset is created, updated or operated upon
 If I want a webhook triggered any time a Story Status changes my event would look like:
 ```json
 {
-    "type": "AttributeChanged",
-    "from": "Story",
-    "attribute": "Status"
+  "type": "AttributeChanged",
+  "from": "Story",
+  "attribute": "Status"
 }
 ```
 
@@ -34,15 +34,15 @@ We can enhance our event even more by filtering out Stories that don't meet a sp
 
 ```json
 {
-    "type": "AttributeChanged",
-    "from": "Story",
-    "attribute": "Status",
-    "filter": [
-        "Scope=$Scope"
-    ],
-    "with": {
-        "$Scope": "Scope:0"
-    }
+  "type": "AttributeChanged",
+  "from": "Story",
+  "attribute": "Status",
+  "filter": [
+    "Scope=$Scope"
+  ],
+  "with": {
+    "$Scope": "Scope:0"
+  }
 }
 ```
 
@@ -50,18 +50,18 @@ When the webhook is fired we might want details about the Story whose Status cha
 
 ```json
 {
-    "type": "AttributeChanged",
-    "from": "Story",
-    "attribute": "Status",
-    "filter": [
-        "Scope=$Scope"
-    ],
-    "with": {
-        "$Scope": "Scope:0"
-    },
-    "select": [
-        "Name",
-        "Owners.Name"
-    ]
+  "type": "AttributeChanged",
+  "from": "Story",
+  "attribute": "Status",
+  "filter": [
+    "Scope=$Scope"
+  ],
+  "with": {
+    "$Scope": "Scope:0"
+  },
+  "select": [
+    "Name",
+    "Owners.Name"
+  ]
 }
 ```

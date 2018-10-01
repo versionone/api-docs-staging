@@ -8,13 +8,13 @@ the where key takes a value that is also a mapping. The keys of the mapping are 
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name"
-    ],
-    "where": {
-      "Scope": "Scope:1234"
-    }
+  "from": "Story",
+  "select": [
+    "Name"
+  ],
+  "where": {
+    "Scope": "Scope:1234"
+  }
 }
 ```
 
@@ -22,11 +22,11 @@ the where key takes a value that is also a mapping. The keys of the mapping are 
 
 ```json
 [
-	[
-		{
-			"_oid": "Story:1234",
-			"Name": "Story Name"
-		}
-	]
+  [
+    {
+      "_oid": "Story:1234",
+      "Name": "Story Name"
+    }
+  ]
 ]
 ```

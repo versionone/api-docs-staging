@@ -7,6 +7,7 @@ The following example returns usage information for the specified `<tag>`. It wi
 `GET http://V1Host/V1Instance/api/tags?tag=<tag>`
 
 #### HTTP Response
+
 ```json
 {
   "tag": "UX",

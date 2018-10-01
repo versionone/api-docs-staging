@@ -7,6 +7,7 @@ The following example returns every tag in use in the system with usage informat
 `GET http://V1Host/V1Instance/api/tags/all`
 
 #### HTTP Response
+
 ```json
 {
   "acceptanceTestDetails": {

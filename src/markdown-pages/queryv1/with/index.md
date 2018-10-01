@@ -8,20 +8,20 @@ Provide context to `where` clauses or `filter` with variables.
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name"
-    ],
-    "filter": [
-      "Name=$myName"
-    ],
-    "where": {
-      "Scope": "$myScope"
-    },
-    "with": {
-      "$myScope": "Scope:1234",
-      "$myName": "Alice Agility"
-    }
+  "from": "Story",
+  "select": [
+      "Name"
+  ],
+  "filter": [
+    "Name=$myName"
+  ],
+  "where": {
+    "Scope": "$myScope"
+  },
+  "with": {
+    "$myScope": "Scope:1234",
+    "$myName": "Alice Agility"
+  }
 }
 ```
 
@@ -29,11 +29,11 @@ Provide context to `where` clauses or `filter` with variables.
 
 ```json
 [
-	[
-		{
-			"_oid": "Story:1234",
-			"Name": "Story Name"
-		}
-	]
+  [
+    {
+      "_oid": "Story:1234",
+      "Name": "Story Name"
+    }
+  ]
 ]
 ```

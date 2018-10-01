@@ -12,14 +12,14 @@ Paging only works for the topmost query. You cannot limit/page the results of su
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name"
-    ],
-    "page": {
-        "start": "0",
-        "size": "5"
-    }
+  "from": "Story",
+  "select": [
+    "Name"
+  ],
+  "page": {
+    "start": "0",
+    "size": "5"
+  }
 }
 ```
 

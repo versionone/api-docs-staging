@@ -8,19 +8,19 @@ You may group a set of assets by a related-to value. For example, stories can be
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name",
-        "Number"
-    ],
-    "group": [
-      {
-        "from": "Status",
-        "select": [
-          "Name"
-        ]
-      }
-    ]
+  "from": "Story",
+  "select": [
+    "Name",
+    "Number"
+  ],
+  "group": [
+    {
+      "from": "Status",
+      "select": [
+        "Name"
+      ]
+    }
+  ]
 }
 ```
 

@@ -8,11 +8,11 @@ Retrieve only the attributes you need from an asset.
 
 ```json
 {
-    "from": "Story",
-    "select": [ 
-        "Name",
-        "Scope.Name"
-    ]
+  "from": "Story",
+  "select": [
+    "Name",
+    "Scope.Name"
+  ]
 }
 ```
 
@@ -20,17 +20,17 @@ Retrieve only the attributes you need from an asset.
 
 ```json
 [
-	[
-		{
-			"_oid": "Story:1234",
-			"Name": "Their Story",
-			"Scope.Name": "Project A"
-		},
-		{
-			"_oid": "Story:5678",
-			"Name": "My Story",
-			"Scope.Name": "Project B"
-		}
-	]
+  [
+    {
+      "_oid": "Story:1234",
+      "Name": "Their Story",
+      "Scope.Name": "Project A"
+    },
+    {
+      "_oid": "Story:5678",
+      "Name": "My Story",
+      "Scope.Name": "Project B"
+    }
+  ]
 ]
 ```

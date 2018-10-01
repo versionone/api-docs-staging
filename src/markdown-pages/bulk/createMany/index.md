@@ -8,53 +8,54 @@ Multiple assets can be created in a single HTTP request using bulk API.
 
 ```json
 [
-    {
-        "AssetType": "Story",
-        "Name": "New Story",
-        "Scope": "Scope:0"
-    },
-    {
-        "AssetType": "Another Story",
-        "Name": "Another New Story",
-        "Scope": "Scope:0"
-    },
-    {
-        "AssetType": "Scope",
-        "Name": "New Scope",
-        "Scope": "Scope:0"
-    }
+  {
+    "AssetType": "Story",
+    "Name": "New Story",
+    "Scope": "Scope:0"
+  },
+  {
+    "AssetType": "Another Story",
+    "Name": "Another New Story",
+    "Scope": "Scope:0"
+  },
+  {
+    "AssetType": "Scope",
+    "Name": "New Scope",
+    "Scope": "Scope:0"
+  }
 ]
 ```
 
 #### HTTP Response
+
 ```json
 {
- "requestId": "767f7870-bc12-46d4-a978-e55e6bc405f1",
- "createdDate": "2018-08-24T15:06:53.1347214Z",
- "completedDate": "2018-08-24T15:06:53.2732206Z",
- "duration": "00:00:00.1384992",
- "durationSeconds": 0.1384992,
- "complete": true,
- "processing": false,
- "assetsCreated": {
+  "requestId": "767f7870-bc12-46d4-a978-e55e6bc405f1",
+  "createdDate": "2018-08-24T15:06:53.1347214Z",
+  "completedDate": "2018-08-24T15:06:53.2732206Z",
+  "duration": "00:00:00.1384992",
+  "durationSeconds": 0.1384992,
+  "complete": true,
+  "processing": false,
+  "assetsCreated": {
   "oidTokens": [
-      "Story:3604",
-      "Story:3605"
-      "Scope:3606"
-  ],
-  "count": 1
- },
- "assetsModified": {
-  "oidTokens": [],
-  "count": 0
- },
- "assetsOperatedOn": {
-  "oidTokens": [],
-  "count": 0
- },
- "queryResult": {
-  "results": [],
-  "count": -1
- }
+    "Story:3604",
+    "Story:3605"
+    "Scope:3606"
+    ],
+    "count": 1
+  },
+  "assetsModified": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "assetsOperatedOn": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "queryResult": {
+    "results": [],
+    "count": -1
+  }
 }
 ```
