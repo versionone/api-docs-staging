@@ -6,6 +6,7 @@ A single asset can be created.
 
 `POST http://V1Host/V1Instance/api/asset`
 
+###### Payload:
 ```json
 {
   "AssetType": "Story",

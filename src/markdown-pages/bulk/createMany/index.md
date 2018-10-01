@@ -6,6 +6,7 @@ Multiple assets can be created in a single HTTP request using bulk API.
 
 `POST http://V1Host/V1Instance/api/asset`
 
+###### Payload:
 ```json
 [
   {

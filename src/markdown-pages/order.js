@@ -5,7 +5,7 @@ module.exports = [
   { path: 'headers', title: 'HTTP Headers' },
   { path: 'errors', title: 'Errors' },
   { path: 'terminology', title: 'Terminology' },
-  { path: 'attributeDefinitionSyntax', title: 'Attriubute Definitions' },
+  { path: 'attributeDefinitionSyntax', title: 'Attribute Definitions' },
   { path: 'metav1', title: '~/meta.v1' },
   { path: 'bulk', title: '~/api/asset' },
   { path: 'webhookSubscription', title: '~/api/webhook' },

@@ -8,6 +8,7 @@ Delete Story `Story:1234`
 
 `POST http://V1Host/V1Instance/api/asset`
 
+###### Payload:
 ```json
 {
   "from": "Story:1234",

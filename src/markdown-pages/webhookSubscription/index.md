@@ -1,6 +1,6 @@
-Webhook subscription allow you to define what events in VersionOne can fire webhooks!
+Webhook subscription allow you to define what events in VersionOne can fire webhooks.
 
-By supplying a url to an external system and a list of events that trigger a webhook you can inform that external system anytime the event occurs in VersionOne. For example receive an HTTP request to the external system anytime a Story in Project A that is owned by Susan has a Status change.
+By supplying a url to an external system and a list of events that trigger a webhook, you can inform that external system anytime the event occurs in VersionOne. For example, receive an HTTP request to the external system anytime a Story in Project A that is owned by Susan has a Status change.
 
 By configuring the event with `from`, `filter`, `with`, and `select` you can get very specific about what changes you want to be notified about in VersionOne.
 
@@ -12,7 +12,7 @@ Add a short `description` to keep track of where this webhook will be sent when 
 
 ## Event Types
 
-VersionOne keeps track of any time an Asset is created, updated or operated upon as well as any time an addition, removal, and update to any Attribute is made. This allows use to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
+VersionOne keeps track of any time an Asset is created, updated or operated upon, as well as any time an addition, removal, and update to any Attribute is made. This allows use to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
 
 * AssetCreated,
 * AssetUpdated,
@@ -21,7 +21,7 @@ VersionOne keeps track of any time an Asset is created, updated or operated upon
 * AttributeAdded
 * AttributeRemoved
 
-If I want a webhook triggered any time a Story Status changes my event would look like:
+If I want a webhook triggered any time a Story Status changes, my event would look like:
 ```json
 {
   "type": "AttributeChanged",
@@ -30,7 +30,7 @@ If I want a webhook triggered any time a Story Status changes my event would loo
 }
 ```
 
-We can enhance our event even more by filtering out Stories that don't meet a specified criteria using the `filter` and `with` fields. If I only want to know about Story Status changes for stories in my Project the event would look like:
+We can enhance our event even more by filtering out Stories that don't meet a specified criteria using the `filter` and `with` fields. If I only want to know about Story Status changes for stories in my Project, the event would look like:
 
 ```json
 {
@@ -46,7 +46,7 @@ We can enhance our event even more by filtering out Stories that don't meet a sp
 }
 ```
 
-When the webhook is fired we might want details about the Story whose Status changed. We have you covered. You can use the `select` field to pick which Attributes will be included about the Story in addition to the Asset's Oid. For example if you want to know the Name and the Name of each of Owner of the Story if would look like:
+When the webhook is fired, we might want details about the Story whose Status changed. We have you covered. You can use the `select` field to pick which of the Story's Attributes will be included in addition to the Asset's Oid. For example, if you want to know the Name of the Story and the Name of each of Owner of the Story if would look like:
 
 ```json
 {

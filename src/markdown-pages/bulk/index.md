@@ -1,1 +1,1 @@
-The bulk api can be used to make several operations in a single HTTP request!
+The bulk api can be used to make several operations in a single HTTP request.

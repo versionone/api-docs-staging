@@ -8,6 +8,7 @@ Update the name of Story:1234 to `Updated Story`
 
 `POST http://V1Host/V1Instance/api/asset`
 
+###### Payload:
 ```json
 {
   "from": "Story:1234",

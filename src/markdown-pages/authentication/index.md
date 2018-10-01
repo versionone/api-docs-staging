@@ -1,4 +1,14 @@
-Every request to the VersionOne API must have the Authroization HTTP Header set using either your username and password or an access token. Access tokens are associated with an application and grant the application certain access to resources. The application can act on behalf of the member who created the access token.
+Every request to the VersionOne API must have the Authorization HTTP Header set. You can do this using your username and password, but it is reccommended that you use an access token. Access tokens are associated with an application and grant the application certain access to resources. The application can act on behalf of the member who created the access token.
+
+## Username and Password
+
+You may use your username and password using Basic authentication by setting the Authroization header.
+You'll have to base64 encode `username:password` including the `:` to accomplish this.
+
+```bash
+curl "https://V1Host/V1Instance/api_endpoint_here"
+  -H "Authorization: Basic username:password"
+```
 
 ## Access Tokens
 
@@ -12,16 +22,6 @@ curl "https://V1Host/V1Instance/api_endpoint_here"
 
 
 ![Application Page](./../../images/access-token.png)
-
-## Username and Password
-
-You may use your username and password using Basic authentication by setting the Authroization header.
-You'll have to base64 encode `username:password` including the `:`!
-
-```bash
-curl "https://V1Host/V1Instance/api_endpoint_here"
-  -H "Authorization: Basic username:password"
-```
 
 <aside class="notice">
   <div class="content">

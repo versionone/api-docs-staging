@@ -8,17 +8,18 @@ Create a new scope and then create a new story whose scope is the newly created 
 
 `POST http://V1Host/V1Instance/api/asset`
 
+###### Payload:
 ```json
 [
   "@newScope": {
-     "AssetType":"Scope",
-     "Name":"New Scope",
-     "Super": "Scope:0"
+    "AssetType":"Scope",
+    "Name":"New Scope",
+    "Super": "Scope:0"
   },
   "@newStory": {
-     "AssetType":"Story",
-     "Name":"New Story",
-     "Scope": "@newScope"
+    "AssetType":"Story",
+    "Name":"New Story",
+    "Scope": "@newScope"
   }
 ]
 ```
