@@ -10,7 +10,7 @@
   --main-paper-color: white;
 }
 html {
-  font-family: Roboto;
+  font-family: Helvetica;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -27,6 +27,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  font-size: 100%;
 }
 a {
   color: var(--main-gunmetal-color);
@@ -145,6 +146,8 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  font-size: 1rem;
+  line-height: 1.45rem;
 }
 figure {
   margin-left: 0;
@@ -298,8 +301,12 @@ td:last-child {
 
 .group {
   padding-bottom: 32px;
-  margin-bottom: 64px;
+  padding-top: 72px;
   border-bottom: 1px solid var(--main-grey-color);
+}
+
+.group:first-of-type {
+  padding-top: 0;
 }
 
 .group:last-of-type {
@@ -513,7 +520,7 @@ pre > code.highlight {
   display: inline-block;
   background-color: var(--main-lightblue-color);
   color: var(--main-blue-color);
-  font-size: 11px;
+  font-size: .75rem;
   font-weight: 700;
   line-height: 1;
   max-width: 100%;
@@ -538,6 +545,8 @@ pre > code.highlight {
   width: 1px;
   margin: 0px;
   padding: 40px;
+  padding-left: 80px; 
+  max-width: 1200px;
 }
 
 @media only screen and (max-width: 480px) {
