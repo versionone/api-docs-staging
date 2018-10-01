@@ -1,5 +1,0 @@
-## ~/loc-2.v1
-
-This endpoint provides localization and allows a client to retrieve the suggested localization of multiple strings. Often other VersionOne endpoints will return unlocalized strings such as suggested names or error messages. These unlocalized strings may be passed to loc-2.v1 which will attempt to translate the strings into locale specific strings returned as a JSON object with key-value pairs for each translation.
-
-In a case where a locale specific string could not be found, a series of fallbacks exist. For example if French-Canadian (fr-ca) does not have a localization entry for the string "Story", the French locale (fr) will be searched, and then finally the English (en) locale will be searched. If no localization entry exists in any locale, the input string will be returned unchanged. To retrieve a localized string for a specific locale, set the "Accept-Language" HTTP Header in the request to a specific locale. For example to use French-Canadian set the header to "fr-ca".

@@ -1,3 +1,0 @@
-# ~/loc-2.v1
-
-This endpoint provides localization and allows a client to retrieve the suggested localization of multiple strings. Often other VersionOne endpoints will return unlocalized strings such as suggested names or error messages. These unlocalized strings may be passed to loc-2.v1 which will attempt to translate the strings into locale specific strings returned as a JSON object with key-value pairs for each translation.

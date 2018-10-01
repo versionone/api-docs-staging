@@ -1,5 +1,0 @@
-## ~/meta.v1
-
-The VersionOne Meta API provides read-only information about all the assets contained within VersionOne including their types, attributes, relationships, and the operations that they support. In addition, it allows you to discover information such as which attribute definitions are required, what content is valid for an attribute, which attributes belong to which asset types, and what custom fields an asset contains. For example, the Meta API will indicate that the Story asset type has an attribute definition called Estimate which is a Numeric attribute type and is not required.
-
-Each asset type contains a collection of attribute definitions, a collection of operations, and a number of useful attribute definitions for things like sorting. Each attribute definition describes the type of data it can contain as well as whether it is required, read only, and multi value. Each operation contains a reference to an attribute definition that can be used to determine whether the specific operation can be executed on a given asset.

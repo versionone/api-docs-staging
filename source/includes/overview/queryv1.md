@@ -1,3 +1,0 @@
-## ~/query.v1
-
-This endpoint provides read-only access to assets. When HTTP round-trip time dominates the query response time, it can be useful to submit many queries in one HTTP transaction. This endpoint accepts an arbitrary number of independent queries. They are submitted to the retrieval subsystem in parallel. This endpoint also allows retrieval of arbitrarily nested master/detail and hierarchical relationships. For example, you can retrieve all the `Schedules` in a `Scope`, all the `Iterations` in the `Schedules`, and all the `Workitems` in the `Iterations`, all in one go.

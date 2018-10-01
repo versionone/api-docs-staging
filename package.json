@@ -1,41 +1,58 @@
 {
-  "name": "versionone-lifecycle-api-docs",
+  "name": "versionone-api-docs",
+  "description": "VersionOne Api Docs",
   "version": "1.0.0",
-  "description": "Unoffical VersionOne Lifecycle API",
-  "main": "index.js",
+  "author": "walkerandolphsmith@gmail.com",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "start": "gulp clean && gulp serve",
-    "build": "gulp",
-    "deploy": "./deploy.sh"
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "format": "prettier --write '**/*.js'",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "dependencies": {
+    "@atlaskit/avatar": "^14.0.10",
+    "@atlaskit/dropdown-menu": "^6.1.16",
+    "@atlaskit/field-text": "^7.0.11",
+    "@atlaskit/icon": "^13.9.0",
+    "@atlaskit/modal-dialog": "^7.0.1",
+    "@atlaskit/navigation": "^33.1.10",
+    "@atlaskit/tabs": "^8.0.8",
+    "@atlaskit/tooltip": "^12.1.0",
+    "@material-ui/core": "^3.1.1",
+    "@researchgate/react-intersection-observer": "^0.7.3",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.0.5",
+    "gatsby-remark-images": "^2.0.3",
+    "lodash.groupby": "^4.6.0",
+    "prismjs": "^1.15.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.1.0",
+    "styled-components": "^3.4.9",
+    "v1sdk": "^2.3.0"
+  },
+  "devDependencies": {
+    "gatsby-cli": "^2.4.1",
+    "gatsby-remark-prismjs": "^3.0.0",
+    "gatsby-source-filesystem": "^2.0.1",
+    "gatsby-transformer-remark": "^2.1.3",
+    "gh-pages": "^2.0.0",
+    "graphql-tag": "^2.9.2",
+    "prettier": "^1.14.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/walkerrandolphsmith/node-slate.git"
-  },
-  "author": "walkerrandolphsmith@gmail.com",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/walkerrandolphsmith/node-slate/issues"
-  },
-  "homepage": "https://github.com/walkerrandolphsmith/node-slate#readme",
-  "devDependencies": {
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.7.0",
-    "gulp-cli": "^1.2.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-ejs": "^3.0.1",
-    "gulp-if": "^2.0.0",
-    "gulp-live-server": "^0.0.31",
-    "gulp-open": "^2.0.0",
-    "gulp-prettify": "^0.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.7",
-    "highlight.js": "^9.2.0",
-    "js-yaml": "^3.5.5",
-    "marked": "^0.3.5",
-    "node-sass": "^4.5.3"
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
