@@ -16,7 +16,7 @@ sort | Any attribute definition can be used to sort the results of a query. Toke
 where | Without the where parameter, queries return the entire set of from assets. The where parameter filters the results to a subset that meet specific criteria. Whenever possible, use where or filter to explicitly choose specific assets, thereby reducing the load put on the application.
 with | Without the where parameter, queries return the entire set of from assets. The where parameter filters the results to a subset that meet specific criteria. Whenever possible, use where or filter to explicitly choose specific assets, thereby reducing the load put on the application.
 
-### Dichotomy of the Reponse
+### Dichotomy of the Response
 
 #### Assets
 When requesting more than a single asset, the assets node helps navigate over the set of assets. The attributes `total`, `pageSize`, and `pageStart` can be used to navigate through a large set.

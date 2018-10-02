@@ -2,7 +2,7 @@ Every request to the VersionOne API must have the Authorization HTTP Header set.
 
 ## Username and Password
 
-You may use your username and password using Basic authentication by setting the Authroization header.
+You may use your username and password using Basic authentication by setting the Authorization header.
 You'll have to base64 encode `username:password` including the `:` to accomplish this.
 
 ```bash

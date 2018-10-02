@@ -9,8 +9,11 @@ By configuring the event with `from`, `filter`, `with`, and `select`, you can ge
 ## External System
 
 The external system can be configured by adding a `url` to the webhook subscription.
-If the external system requires an authorization token, you can add it as an `authorizationHeader`. This field will be sent as the HTTP Authroization Header each time an event triggers the webhook to be sent.
-Add a short `description` to keep track of where this webhook will be sent when viewing the subscription.
+If the external system requires an authorization token, you can add it as an `authorizationHeader`. This field will be sent as the HTTP Authorization Header each time an event triggers the webhook to be sent.
+
+The `webhookId` will be helpful for you to query or update this webhook later, so make it meaningful and unique, if possible.
+
+Add a short `description` to keep track of what this webhook is used for, such as where this webhook will be sent and why.
 
 ## Event Types
 
