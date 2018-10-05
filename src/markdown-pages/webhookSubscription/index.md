@@ -17,11 +17,10 @@ Add a short `description` to keep track of what this webhook is used for, such a
 
 ## Event Types
 
-VersionOne keeps track of any time an Asset is created, updated or operated upon.. This allows us to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
+VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
 
 * AssetCreated
 * AssetUpdated
-* OperationExecuted
 
 If I want a webhook triggered any time a Story changes, my event would look like:
 ```json
