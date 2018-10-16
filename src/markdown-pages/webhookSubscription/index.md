@@ -77,3 +77,65 @@ When the webhook is fired, we might want details about the Story whose Status ch
   ]
 }
 ```
+
+## Webhook
+
+The webhook itself will include many details about the event that has occured. 
+
+In each event object, the webhook will include the webhookID, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occured, along with the timestamp.
+
+The webhook will also include information about the instigator, or the user who triggered the webhook, such as their name, role, and more. 
+
+Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were. 
+
+The final section is the snapshot, which includes the informations requested in the `select` field of the eventType definition in your Webhook Subscription.
+
+```json
+[
+  {...event},
+  {...event},
+  {
+    "webhookId": "YYY",
+    "sequenceId": 1,
+    "eventType": "AssetChanged",
+    "timestamp": "UTC date",
+    "instigator": {
+      "_oid": "Member:20",
+      "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Member:20",
+      "Name": "Administrator",
+      "NickName": "Adam",
+      "Email": "admin@admin.com",
+      "Role": "Role:2",
+      "Avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
+    },
+    "targetAsset": {
+      "_oid": "Story:123",
+      "AssetType": "Story",
+      "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123",
+    }
+    "changes": [
+      {
+        "Name": "Name",
+        "Old": "Original Name",
+        "New": "New Name"
+      }
+    ],
+    "snapshot": [
+      [
+        {
+          "_oid": "Story:123",
+          "Owners.Name" [
+            "Administrator"
+          ],
+          "Owners.ID": [
+            { "_oid": "Member:20" }
+          ],
+          "SubsAndMe.Owners.Name": [
+            "Administrator"
+          ]
+        }
+      ]
+    ],
+  }
+]
+```
