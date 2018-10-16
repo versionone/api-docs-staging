@@ -6,6 +6,12 @@ You are able to create and edit webhooks to be as broad or specific as you'd lik
 
 By configuring the event with `from`, `filter`, `with`, and `select`, you can get very specific about what changes you want to be notified about in VersionOne.
 
+<aside class="notice">
+    <div class="content">
+        In the first release of webhooks you will only be allowed to have 5 enabled webhook subscriptions at a time! Hang tight for looser restrictions.
+    </div>
+</aside>
+
 ## External System
 
 The external system can be configured by adding a `url` to the webhook subscription.
@@ -15,6 +21,12 @@ The `webhookId` will be helpful for you to query or update this webhook later, s
 
 Add a short `description` to keep track of what this webhook is used for, such as where this webhook will be sent and why.
 
+<aside class="notice">
+    <div class="content">
+        Responding back to VersionOne with any status code other than a HTTP Status Code 200 OK will result in a failure to send. Five consecutive failed deliveries can cause the webhook subscription to be disabled, so check the retry count on your subscription if you think your webhooks stopped working.
+    </div>
+</aside>
+
 ## Event Types
 
 VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
@@ -23,6 +35,7 @@ VersionOne keeps track of any time an Asset is created, or updated. This allows 
 * AssetUpdated
 
 If I want a webhook triggered any time a Story changes, my event would look like:
+
 ```json
 {
   "type": "AssetChanged",
@@ -34,6 +47,7 @@ You can also include an array of `attributes` that will allow you to specify whi
 
 
 If I want a webhook triggered any time a Story Status changes, my event would look like:
+
 ```json
 {
   "type": "AssetChanged",
@@ -80,44 +94,47 @@ When the webhook is fired, we might want details about the Story whose Status ch
 
 ## Webhook
 
-The webhook itself will include many details about the event that has occured. 
+The webhook itself will include many details about the event that has occured within VersionOne. 
 
-In each event object, the webhook will include the webhookID, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occured, along with the timestamp.
+In each event object, the webhook will include the webhookID, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occured, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequence id to garuantee the order is accurate!
 
-The webhook will also include information about the instigator, or the user who triggered the webhook, such as their name, role, and more. 
+The webhook will also include information about the instigator, or the user who enacted the change in VersionOne that triggered the webhook, such as their name, role, email, and more. 
 
 Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were. 
 
-The final section is the snapshot, which includes the informations requested in the `select` field of the eventType definition in your Webhook Subscription.
+The final section is the snapshot, which includes the informations requested in the `select` field of the eventType definition in your Webhook Subscription. Say you want webhooks fired when a story status changes, but when you receive the webhook you want to know specific details about the story whose status changed. By including attributes of the Story in your `select` you can receive that projection of the story in the `snapshot` in the same shape as the results of the `~/api/query.v1` request.
 
 ```json
 [
-  {...event},
-  {...event},
   {
     "webhookId": "YYY",
     "sequenceId": 1,
     "eventType": "AssetChanged",
-    "timestamp": "UTC date",
+    "timestamp": "UTC timestamp",
     "instigator": {
       "_oid": "Member:20",
       "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Member:20",
-      "Name": "Administrator",
-      "NickName": "Adam",
-      "Email": "admin@admin.com",
-      "Role": "Role:2",
-      "Avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
+      "name": "Administrator",
+      "nickName": "Adam",
+      "email": "admin@admin.com",
+      "role": "Role:2",
+      "avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
     },
     "targetAsset": {
       "_oid": "Story:123",
-      "AssetType": "Story",
+      "assetType": "Story",
       "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123",
     }
     "changes": [
       {
-        "Name": "Name",
-        "Old": "Original Name",
-        "New": "New Name"
+        "name": "Name",
+        "old": "Original Name",
+        "new": "New Name"
+      },
+      {
+        "name": "Description",
+        "old": "<p>old description</p>",
+        "new": "<p>new description</p>"
       }
     ],
     "snapshot": [
