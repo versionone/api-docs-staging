@@ -34,7 +34,7 @@ Add a short `description` to keep track of what this webhook is used for, such a
 VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
 
 * AssetCreated
-* AssetUpdated
+* AssetChanged
 
 If I want a webhook triggered any time a Story changes, my event would look like:
 
@@ -70,7 +70,19 @@ We can enhance our event even more by filtering out Stories that don't meet a sp
   ],
   "with": {
     "$Scope": "Scope:0"
-  }
+  },
+  "userContext": "Memeber:1002"
+}
+```
+
+Many assets in VersionOne are secured by their relationship to a Scope (Project) limiting a member's ability to access a resource. We can configure the webhook to query on behalf of a sepcific user using the `usercontext` field. Without this field all assets independent of their relationship to Scope can produce webhooks. In the following case only status changes to stories Member 1002 has access to will produce webhooks to be sent.
+
+```json
+{
+  "type": "AssetChanged",
+  "from": "Story",
+  "attributes": ["Status"],
+  "userContext": "Memeber:1002"
 }
 ```
 
