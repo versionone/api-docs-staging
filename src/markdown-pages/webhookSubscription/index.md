@@ -1,4 +1,3 @@
-<span class="badge">COMING SOON</span>
 
 Webhook subscription allow you to define what events in VersionOne can fire webhooks.
 
