@@ -1,10 +1,10 @@
 ## Query
 
-Retrieve a paged list of existing webhook subscriptions.
+Retrieve a paged list of existing webhook subscriptions. By default, a query of existing webhook subscriptions will start with the first subscription and show 25 per page, but that can be changed in the request.
 
 #### HTTP Request
 
-`GET http://V1Host/V1Instance/api/webhook?page=pageSize,pageStart&where=field=value`
+`GET http://V1Host/V1Instance/api/webhook?page=pageSize,pageStart`
 
 #### HTTP Response
 

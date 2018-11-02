@@ -25,7 +25,7 @@ Add a short `description` to keep track of what this webhook is used for, such a
 
 <aside class="notice">
     <div class="content">
-        Responding back to VersionOne with any status code other than a HTTP Status Code 200 OK will result in a failure to send. Five consecutive failed deliveries can cause the webhook subscription to be disabled, so check the retry count on your subscription if you think your webhooks stopped working.
+        Responding back to VersionOne with any status code other than a HTTP Status Code 200 OK will result in a failure to send. Five consecutive failed deliveries can cause the webhook subscription to be disabled, so check the retry count on your subscription if you think your webhook has stopped working.
     </div>
 </aside>
 
@@ -108,15 +108,16 @@ When the webhook is fired, we might want details about the Story whose Status ch
 
 ## Webhook
 
-The webhook itself will include many details about the event that has occured within VersionOne. 
+The webhook itself will include many details about the event that has occurred within VersionOne. 
 
-In each event object, the webhook will include the webhookID, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occured, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequence id to garuantee the order is accurate!
+In each event object, the webhook will include the webhookId, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occurred, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequenceId to guarantee the order is accurate!
 
 The webhook will also include information about the instigator, or the user who enacted the change in VersionOne that triggered the webhook, such as their name, role, email, and more. 
 
 Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were. 
 
-The final section is the snapshot, which includes the informations requested in the `select` field of the eventType definition in your Webhook Subscription. Say you want webhooks fired when a story status changes, but when you receive the webhook you want to know specific details about the story whose status changed. By including attributes of the Story in your `select` you can receive that projection of the story in the `snapshot` in the same shape as the results of the `~/api/query.v1` request.
+The final section is the snapshot, which includes the information requested in the `select` field of the eventType definition in your Webhook Subscription. For example, if you want webhooks fired when a story status changes, you may want to know specific details about the story whose status changed, such as the name of the story or the owners. By including attributes of the Story in your `select`, you can receive that projection of the story in the `snapshot` in the same shape as the results of the `~/api/query.v1` request.
+
 
 ```json
 [
@@ -129,13 +130,13 @@ The final section is the snapshot, which includes the informations requested in 
       "_oid": "Member:20",
       "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Member:20",
       "name": "Administrator",
-      "nickName": "Adam",
+      "nickName": "Admin",
       "email": "admin@admin.com",
       "role": "Role:2",
       "avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
     },
     "targetAsset": {
-      "_oid": "Story:123",
+      "_oid": "Story:123:456",
       "assetType": "Story",
       "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123",
     }
@@ -143,12 +144,13 @@ The final section is the snapshot, which includes the informations requested in 
       {
         "name": "Name",
         "old": "Original Name",
-        "new": "New Name"
+        "new": "New Name",
+        "act": "Set"
       },
       {
-        "name": "Description",
-        "old": "<p>old description</p>",
-        "new": "<p>new description</p>"
+        "name": "Owners",
+        "new": "Member:20",
+        "act": "Added"
       }
     ],
     "snapshot": [
