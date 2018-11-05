@@ -1,16 +1,14 @@
-<span class="badge">COMING SOON</span>
+Webhook subscriptions allow you to define which events in VersionOne can fire webhooks.
 
-Webhook subscription allow you to define what events in VersionOne can fire webhooks.
+By supplying a URL to an external system and a list of events that should trigger a webhook, you can inform that external system any time the event occurs in VersionOne.
 
-By supplying a URL to an external system and a list of events that trigger a webhook, you can inform that external system anytime the event occurs in VersionOne.  
+You are able to create and edit webhooks to be as broad or specific as you'd like. For example, you can use webhooks to receive an HTTP request to the external system any time any Story Status changes, or any time a Story in Project A that is owned by Susan has a Status change.
 
-You are able to create and edit webhooks to be as broad or specific as you'd like. For example, you can use webhooks to receive an HTTP request to the external system anytime any story changes it status, or anytime Story in Project A that is owned by Susan has a Status change.
-
-By configuring the event with `from`, `filter`, `with`, and `select`, you can get very specific about what changes you want to be notified about in VersionOne.
+By configuring the event with `from`, `filter`, `with`, and `select`, you can get very specific about which changes you want to be notified about in VersionOne.
 
 <aside class="notice">
     <div class="content">
-        In the first release of webhooks you will only be allowed to have 5 enabled webhook subscriptions at a time! Hang tight for looser restrictions.
+        In the first release of webhook subscriptions, your instance can have up to 5 enabled webhook subscriptions at a time! Hang tight for looser restrictions.
     </div>
 </aside>
 
@@ -31,7 +29,7 @@ Add a short `description` to keep track of what this webhook is used for, such a
 
 ## Event Types
 
-VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around the Assets and their Attributes. Each event has a `type` from one of the following:
+VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around Assets and their Attributes. Each event has a `type` from one of the following:
 
 * AssetCreated
 * AssetChanged
@@ -45,7 +43,7 @@ If I want a webhook triggered any time a Story changes, my event would look like
 }
 ```
 
-You can also include an array of `attributes` that will allow you to specify which attributes of the asset you'd like to trigger webhooks. Omitting the `attributes` field will notify you of any changes to the asset. 
+You can also include an array of `attributes` that will allow you to specify which attributes of the asset you'd like to trigger webhooks. Omitting the `attributes` field will notify you of any changes to the asset.
 
 
 If I want a webhook triggered any time a Story Status changes, my event would look like:
@@ -58,7 +56,7 @@ If I want a webhook triggered any time a Story Status changes, my event would lo
 }
 ```
 
-We can enhance our event even more by filtering out Stories that don't meet a specified criteria using the `filter` and `with` fields. If I only want to know about Story Status changes for stories in my Project, the event would look like:
+We can enhance our event even more by filtering out Stories that don't meet a specified criteria using the `filter` and `with` fields. If I only want to know about Story Status changes for Stories in my Project, the event would look like:
 
 ```json
 {
@@ -75,7 +73,7 @@ We can enhance our event even more by filtering out Stories that don't meet a sp
 }
 ```
 
-Many assets in VersionOne are secured by their relationship to a Scope (Project) limiting a member's ability to access a resource. We can configure the webhook to query on behalf of a sepcific user using the `usercontext` field. Without this field all assets independent of their relationship to Scope can produce webhooks. In the following case only status changes to stories Member 1002 has access to will produce webhooks to be sent.
+Many assets in VersionOne are secured by their relationship to a Scope (Project) limiting a member's ability to access a resource. We can configure the webhook to query on behalf of a sepcific user using the `usercontext` field. Without this field, all assets independent of their relationship to Scope can produce webhooks. In the following case, only Status changes to Stories visible to Member 1002 will produce webhooks.
 
 ```json
 {
@@ -108,16 +106,15 @@ When the webhook is fired, we might want details about the Story whose Status ch
 
 ## Webhook
 
-The webhook itself will include many details about the event that has occurred within VersionOne. 
+The webhook itself will include many details about the event that has occured within VersionOne.
 
-In each event object, the webhook will include the webhookId, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a sequenceId, which will allow the system to determine the order in which the events occurred, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequenceId to guarantee the order is accurate!
+In each event object, the webhook will include the `webhookId`, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a `sequenceId`, which will allow the system to determine the order in which the events occured, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequence id to gurantee that the order is accurate!
 
-The webhook will also include information about the instigator, or the user who enacted the change in VersionOne that triggered the webhook, such as their name, role, email, and more. 
+The webhook will also include information about the instigator, or the user who enacted the change in VersionOne that triggered the webhook, such as their name, role, email, and more.
 
-Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were. 
+Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were.
 
-The final section is the snapshot, which includes the information requested in the `select` field of the eventType definition in your Webhook Subscription. For example, if you want webhooks fired when a story status changes, you may want to know specific details about the story whose status changed, such as the name of the story or the owners. By including attributes of the Story in your `select`, you can receive that projection of the story in the `snapshot` in the same shape as the results of the `~/api/query.v1` request.
-
+The final section is the snapshot, which includes the information requested in the `select` field of the event type definition in your webhook subscription. Say you want webhooks fired when a Story Status changes, but when you receive the webhook you want to know specific details about the Story whose Status changed. By including attributes of the Story in your `select`, you can receive that projection of the Story in the webhook `snapshot` in the same shape as the result of a `~/api/query.v1` request.
 
 ```json
 [
