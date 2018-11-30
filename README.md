@@ -33,6 +33,6 @@ src
                 |-- bash.md
                 |-- csharp.md
                 |-- js.md
-                |-- pthon.md
+                |-- python.md
 |-- pages                           # Entry point and (404, 4XX Pages)
 ```

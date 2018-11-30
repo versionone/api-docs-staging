@@ -31,8 +31,8 @@ Add a short `description` to keep track of what this webhook is used for, such a
 
 VersionOne keeps track of any time an Asset is created, or updated. This allows us to create powerful webhook events modeled around Assets and their Attributes. Each event has a `type` from one of the following:
 
-* AssetCreated
-* AssetChanged
+- AssetCreated
+- AssetChanged
 
 If I want a webhook triggered any time a Story changes, my event would look like:
 
@@ -44,7 +44,6 @@ If I want a webhook triggered any time a Story changes, my event would look like
 ```
 
 You can also include an array of `attributes` that will allow you to specify which attributes of the asset you'd like to trigger webhooks. Omitting the `attributes` field will notify you of any changes to the asset.
-
 
 If I want a webhook triggered any time a Story Status changes, my event would look like:
 
@@ -63,9 +62,7 @@ We can enhance our event even more by filtering out Stories that don't meet a sp
   "type": "AssetChanged",
   "from": "Story",
   "attributes": ["Status"],
-  "filter": [
-    "Scope=$Scope"
-  ],
+  "filter": ["Scope=$Scope"],
   "with": {
     "$Scope": "Scope:0"
   },
@@ -91,24 +88,19 @@ When the webhook is fired, we might want details about the Story whose Status ch
   "type": "AssetChanged",
   "from": "Story",
   "attribute": ["Status"],
-  "filter": [
-    "Scope=$Scope"
-  ],
+  "filter": ["Scope=$Scope"],
   "with": {
     "$Scope": "Scope:0"
   },
-  "select": [
-    "Name",
-    "Owners.Name"
-  ]
+  "select": ["Name", "Owners.Name"]
 }
 ```
 
 ## Webhook
 
-The webhook itself will include many details about the event that has occured within VersionOne.
+The webhook itself will include many details about the event that has occurred within VersionOne.
 
-In each event object, the webhook will include the `webhookId`, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a `sequenceId`, which will allow the system to determine the order in which the events occured, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequence id to gurantee that the order is accurate!
+In each event object, the webhook will include the `webhookId`, which will allow the external system to identify which webhook subscription the response is associated with. It will also include a `sequenceId`, which will allow the system to determine the order in which the events occurred, along with the timestamp. This means your external system may receive the events out of order, but you can used the sequence id to guarantee that the order is accurate!
 
 The webhook will also include information about the instigator, or the user who enacted the change in VersionOne that triggered the webhook, such as their name, role, email, and more.
 
@@ -118,39 +110,39 @@ The final section is the snapshot, which includes the information requested in t
 
 ```json
 [
-  {
-    "webhookId": "YYY",
-    "sequenceId": 1,
-    "eventType": "AssetChanged",
-    "timestamp": "UTC timestamp",
-    "instigator": {
-      "_oid": "Member:20",
-      "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Member:20",
-      "name": "Administrator",
-      "nickName": "Admin",
-      "email": "admin@admin.com",
-      "role": "Role:2",
-      "avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
-    },
-    "targetAsset": {
-      "_oid": "Story:123:456",
-      "assetType": "Story",
+    {
+      "webhookId": "YYY",
+      "sequenceId": 1,
+      "eventType": "AssetChanged",
+      "timestamp": "UTC timestamp",
+      "instigator": {
+        "_oid": "Member:20",
+        "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Member:20",
+        "name": "Administrator",
+        "nickName": "Admin",
+        "email": "admin@admin.com",
+        "role": "Role:2",
+        "avatar": "https://V1Host/V1Instance/Image.mvc/Show?imageOid=Image:192923"
+      },
+      "targetAsset": {
+        "_oid": "Story:123:456",
+        "assetType": "Story",
       "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123",
     }
-    "changes": [
-      {
-        "name": "Name",
-        "old": "Original Name",
-        "new": "New Name",
-        "act": "Set"
-      },
-      {
-        "name": "Owners",
-        "new": "Member:20",
-        "act": "Added"
-      }
-    ],
-    "snapshot": [
+      "changes": [
+        {
+          "name": "Name",
+          "old": "Original Name",
+          "new": "New Name",
+          "act": "Set"
+        },
+        {
+          "name": "Owners",
+          "new": "Member:20",
+          "act": "Added"
+        }
+      ],
+      "snapshot": [
       [
         {
           "_oid": "Story:123",
@@ -166,6 +158,6 @@ The final section is the snapshot, which includes the information requested in t
         }
       ]
     ],
-  }
-]
+    }
+  ]
 ```
