@@ -106,10 +106,11 @@ The webhook will also include information about the instigator, or the user who 
 
 Next, the webhook contains the target asset and changes, which will specify the asset on which the changes were made, as well as what those changes were.
 
-The final section is the snapshot, which includes the information requested in the `select` field of the event type definition in your webhook subscription. Say you want webhooks fired when a Story Status changes, but when you receive the webhook you want to know specific details about the Story whose Status changed. By including attributes of the Story in your `select`, you can receive that projection of the Story in the webhook `snapshot` in the same shape as the result of a `~/api/query.v1` request.
+The final section is the snapshot, which includes the information requested in the `select` field of the event type definition in your webhook subscription. Say you want webhooks fired when a Story Status changes, but when you receive the webhook you want to know specific details about the Story whose Status changed. By including attributes of the Story in your `select`, you can receive that projection of the Story in the webhook `snapshot`.
 
 ```json
-[
+{
+  "events": [
     {
       "webhookId": "YYY",
       "sequenceId": 1,
@@ -127,8 +128,8 @@ The final section is the snapshot, which includes the information requested in t
       "targetAsset": {
         "_oid": "Story:123:456",
         "assetType": "Story",
-      "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123",
-    }
+        "href": "https://V1Host/V1Instance/assetdetail.v1?oid=Story:123"
+      },
       "changes": [
         {
           "name": "Name",
@@ -143,7 +144,6 @@ The final section is the snapshot, which includes the information requested in t
         }
       ],
       "snapshot": [
-      [
         {
           "_oid": "Story:123",
           "Owners.Name" [
@@ -157,7 +157,7 @@ The final section is the snapshot, which includes the information requested in t
           ]
         }
       ]
-    ],
     }
   ]
+}
 ```
