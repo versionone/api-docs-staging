@@ -3,4 +3,5 @@ module.exports = [
   { title: 'update', path: 'update' },
   { title: 'query', path: 'query' },
   { title: 'delete', path: 'delete' },
+  { title: 'status', path: 'status'},
 ]
