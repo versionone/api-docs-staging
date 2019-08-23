@@ -1,8 +1,8 @@
 ## Update
 
-A single asset can be update.
+Update attributes on a single asset.
 
-Update the name of Story:1234 to `Updated Story`
+### Example: Update the name of `Story:1234` to `Updated Story`
 
 #### HTTP Request
 

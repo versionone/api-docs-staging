@@ -1,6 +1,8 @@
 ## Create
 
-A single asset can be created.
+Create a single asset.
+
+### Example: Create a single story
 
 #### HTTP Request
 

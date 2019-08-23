@@ -4,9 +4,9 @@ curl "https://V1Host/V1Instance/api/asset"
   -H "Content-Type: application/json"
   -H "Accept: application/json"
   --request POST
-  --data '{  
-   "AssetType": "Story",
-   "Name": "Story\s Name",
-   "Scope": "Scope:0"
+  --data '{
+    "AssetType": "Story",
+    "Name": "New Story",
+    "Scope": "Scope:0"
 }'
 ```

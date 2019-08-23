@@ -1,8 +1,8 @@
 ## Update Many
 
-Multiple assets can be updated in a single HTTP request using bulk API.
+Update attributes on multiple assets via a single HTTP request.
 
-Find all the stories that are in the `Epic:1234` Epic and rename them.
+### Example: Find all the stories that are in the `Epic:1234` Epic and rename them
 
 #### HTTP Request
 

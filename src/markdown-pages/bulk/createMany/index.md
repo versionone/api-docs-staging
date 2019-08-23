@@ -1,6 +1,8 @@
 ## Create Many
 
-Multiple assets can be created in a single HTTP request using bulk API.
+Create many assets via a single HTTP request.
+
+### Example: Create two stories and a new scope
 
 #### HTTP Request
 
@@ -15,7 +17,7 @@ Multiple assets can be created in a single HTTP request using bulk API.
     "Scope": "Scope:0"
   },
   {
-    "AssetType": "Another Story",
+    "AssetType": "Story",
     "Name": "Another New Story",
     "Scope": "Scope:0"
   },

@@ -1,8 +1,8 @@
 ## Filtering
 
-Filter query results
+Filter query results.
 
-Stories that have 1 or more of its children that have not been deleted (or `AssetState!=255`).
+### Example: Filter for stories that have 1 or more of their children that have not been deleted (or `AssetState!=255`)
 
 #### HTTP Request
 

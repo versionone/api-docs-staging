@@ -5,7 +5,7 @@ curl "https://V1Host/V1Instance/api/asset"
   -H "Accept: application/json"
   --request POST
   --data '{
-    "from":"Member:1234",
-    "execute": "Inactivate"
+    "from": "Story:1234",
+    "execute": "Delete"
 }'
 ```

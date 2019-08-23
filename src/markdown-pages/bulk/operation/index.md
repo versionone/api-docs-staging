@@ -1,8 +1,8 @@
 ## Execute Operation
 
-Execute an operation on a single asset
+Execute an operation on a single asset.
 
-Delete Story `Story:1234`
+### Example: Delete story `Story:1234`
 
 #### HTTP Request
 

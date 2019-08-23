@@ -7,7 +7,7 @@ curl "https://V1Host/V1Instance/api/asset"
   --data '{
     "from":"Story:1234",
     "update": {
-      "Name": "Updated Name"
+      "Name": "Updated Story"
     }
 }'
 ```
