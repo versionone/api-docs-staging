@@ -6,4 +6,6 @@ module.exports = [
   { title: 'operation', path: 'operation' },
   { title: 'update', path: 'update' },
   { title: 'updateMany', path: 'updateMany' },
+  { title: 'query', path: 'query' },
+  { title: 'queryMany', path: 'queryMany' }
 ]
