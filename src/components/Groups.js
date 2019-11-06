@@ -1,22 +1,8 @@
 import React from 'react'
 import groupBy from 'lodash.groupby'
 import SdkCodeblock from './SdkCodeblock'
+import BulkApiExampleBlock from './BulkApiExampleBlock'
 const orderedGroups = require('./../markdown-pages/order')
-
-// const handleChange = event => {
-//   const id = event.target.firstElementChild.id
-//   if (!window.history) {
-//     return
-//   }
-//   var hash = window.location.hash
-//   if (hash) {
-//     hash = hash.replace(/^#+/, '')
-//   }
-
-//   var url = '#' + id
-
-//   window.history.pushState({}, '', url)
-// }
 
 const Groups = ({ data }) => {
   const allSections = data.allMarkdownRemark.edges.map(edge => {
@@ -33,6 +19,7 @@ const Groups = ({ data }) => {
       langFileName,
     }
   })
+
   const filteredSections = allSections
     .map(section => {
       return {
@@ -69,13 +56,28 @@ const Groups = ({ data }) => {
     } catch (e) {}
 
     const sectionsMarkup = orderedSections.map(section => {
-      //const sectionName = section.title
       const sectionPath = section.path
-
       const sections = sectionByGroup[sectionPath]
+
+      console.log(sectionPath)
+
+      if (sections.find(s => s.filename !== 'index.md')) {
+        return (
+          <div
+            key={`${groupPath}-${sectionPath}`}
+            id={`${groupPath}-${sectionPath}`}
+            className="section"
+           >
+            <BulkApiExampleBlock samples={sections} />
+          </div>
+        )
+      }
+
       const indexSection = sections.find(
         section => section.filename === 'index.md'
       )
+
+      if (indexSection === undefined) return;
 
       const { html, sdkSubsections } = indexSection
 
