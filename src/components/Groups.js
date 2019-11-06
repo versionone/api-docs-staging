@@ -59,8 +59,6 @@ const Groups = ({ data }) => {
       const sectionPath = section.path
       const sections = sectionByGroup[sectionPath]
 
-      console.log(sectionPath)
-
       if (sections.find(s => s.filename !== 'index.md')) {
         return (
           <div

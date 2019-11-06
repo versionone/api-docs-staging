@@ -23,7 +23,7 @@ execute: Delete
 AssetType: Scope
 Name: Project for List of Members
 Parent: Scope:0
-BeginDate: 2019-11-05T21:29:26.115Z
+BeginDate: 2019-11-06T19:57:04.330Z
 ---
 AssetType: Member
 Name: scopeListMember1
@@ -52,14 +52,14 @@ The following request invokes the behavior:
 ##### Payload:
 ```yaml
 
-from: Scope:1253
+from: Scope:1265
 execute:
  op: AssignMemberWithRole
  list:
- - Member: Member:1254
+ - Member: Member:1266
    Role: Role:3
    IsOwner: true
- - Member: Member:1255
+ - Member: Member:1267
    Role: Role:7
    IsOwner: false
 
@@ -71,36 +71,36 @@ Expect a result similar to this:
 
 ```json
 {
-	"requestId": "4f5350ab-7d5c-4440-b1ed-f1e68fd101b2",
-	"createdDate": "2019-11-05T21:29:26.6749541Z",
-	"completedDate": "2019-11-05T21:29:26.7319586Z",
-	"duration": "00:00:00.0570045",
-	"durationSeconds": 0.0570045,
-	"complete": true,
-	"processing": false,
-	"assetsCreated": {
-		"oidTokens": [],
-		"count": 0
-	},
-	"assetsModified": {
-		"oidTokens": [],
-		"count": 0
-	},
-	"assetsOperatedOn": {
-		"oidTokens": [
-			"Scope:1253",
-			"Scope:1253"
-		],
-		"count": 2
-	},
-	"commandFailures": {
-		"commands": [],
-		"count": 0
-	},
-	"queryResult": {
-		"results": [],
-		"count": -1
-	}
+  "requestId": "a9ed79a5-ce9b-4011-b0ce-0a68348894fe",
+  "createdDate": "2019-11-06T19:57:04.9039905Z",
+  "completedDate": "2019-11-06T19:57:04.9544909Z",
+  "duration": "00:00:00.0505004",
+  "durationSeconds": 0.0505004,
+  "complete": true,
+  "processing": false,
+  "assetsCreated": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "assetsModified": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "assetsOperatedOn": {
+    "oidTokens": [
+      "Scope:1265",
+      "Scope:1265"
+    ],
+    "count": 2
+  },
+  "commandFailures": {
+    "commands": [],
+    "count": 0
+  },
+  "queryResult": {
+    "results": [],
+    "count": -1
+  }
 }
 ```
 

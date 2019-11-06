@@ -1,27 +1,38 @@
 import React from 'react'
 
-export default props => {
-  const samples = props.samples;
-  const json = samples.find(s => s.filename === "json.md");
-  const yaml = samples.find(s => s.filename === "yaml.md");
-  const handler = function(e) {
-    const div = e.target.closest('div');
-    const targetClass = div.className === "json" ? "yaml" : "json";
-    const parentDiv = div.parentNode;
-    const showDiv = parentDiv.querySelector(`.${targetClass}`);
-    div.style.display = "none";
-    showDiv.style.display = "block";
-  };
-  return (
-    <div>
-      <div class="json">
-        <button disabled>JSON</button> <button onClick={handler}>YAML</button>
-        <div dangerouslySetInnerHTML={{ __html: json.html }} />
-       </div>
-      <div class="yaml">
-        <button onClick={handler}>JSON</button> <button disabled>YAML</button>
-        <div dangerouslySetInnerHTML={{ __html: yaml.html }} />
-      </div>
-    </div>
-  )
+const [YAML, JSON] = ['yaml', 'json'];
+
+export default class extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            lang:  JSON
+        }
+    }
+
+    handler = lang => () => {
+        this.setState({
+            lang,
+        })
+    }
+
+    render() {
+        const samples = this.props.samples.reduce((state, item) => ({ [item.filename.slice(0, -3)]: item, ...state}), {});
+        const lang = this.state.lang;
+        const isJson = lang === JSON;
+
+        const codeBlock = (
+            <div class={lang}>
+                <div dangerouslySetInnerHTML={{ __html: (isJson ? samples[JSON] : samples[YAML]).html }} />
+            </div>
+        )
+
+         return (
+            <div>
+                <button disabled={isJson} onClick={this.handler(JSON)}>JSON</button>
+                <button disabled={!isJson} onClick={this.handler(YAML)}>YAML</button>
+                {codeBlock}
+            </div>
+        )
+    }
 }

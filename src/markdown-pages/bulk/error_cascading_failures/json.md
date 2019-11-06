@@ -14,25 +14,25 @@ The following request invokes the behavior:
 ##### Payload:
 ```json
 {
-	"AssetType": "Epic",
-	"Scope": "Scope:9999",
-	"Name": "My Epic on a Scope that DOES NOT EXIST which will produce a cascade of four failures!",
-	"Subs": [
-		{
-			"AssetType": "Story",
-			"Name": "My Story",
-			"Children": [
-				{
-					"AssetType": "Test",
-					"Name": "My Test"
-				},
-				{
-					"AssetType": "Task",
-					"Name": "My Task"
-				}
-			]
-		}
-	]
+  "AssetType": "Epic",
+  "Scope": "Scope:9999",
+  "Name": "My Epic on a Scope that DOES NOT EXIST which will produce a cascade of four failures!",
+  "Subs": [
+    {
+      "AssetType": "Story",
+      "Name": "My Story",
+      "Children": [
+        {
+          "AssetType": "Test",
+          "Name": "My Test"
+        },
+        {
+          "AssetType": "Task",
+          "Name": "My Task"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -42,78 +42,78 @@ Expect a result similar to this:
 
 ```json
 {
-	"requestId": "62cf5d73-e05f-4266-acf0-f0741fe73955",
-	"createdDate": "2019-11-05T21:28:16.5909662Z",
-	"completedDate": "2019-11-05T21:28:16.5984342Z",
-	"duration": "00:00:00.0074680",
-	"durationSeconds": 0.007468,
-	"complete": true,
-	"processing": false,
-	"assetsCreated": {
-		"oidTokens": [],
-		"count": 0
-	},
-	"assetsModified": {
-		"oidTokens": [],
-		"count": 0
-	},
-	"assetsOperatedOn": {
-		"oidTokens": [],
-		"count": 0
-	},
-	"commandFailures": {
-		"commands": [
-			{
-				"@eef2cc08-3c76-41ab-825b-8ba959b50731": {
-					"AssetType": "Epic",
-					"Scope": "Scope:9999",
-					"Name": "My Epic on a Scope that DOES NOT EXIST which will produce a cascade of four failures!"
-				},
-				"error": {
-					"message": "Violation'Invalid'Epic.Scope",
-					"sourceCommandIndex": 0
-				}
-			},
-			{
-				"@38c17c5c-8ca1-4a08-9ca0-74622a703b48": {
-					"AssetType": "Story",
-					"Name": "My Story",
-					"#ContextOid": "@eef2cc08-3c76-41ab-825b-8ba959b50731"
-				},
-				"error": {
-					"message": "Invalid OID token: @eef2cc08-3c76-41ab-825b-8ba959b50731",
-					"sourceCommandIndex": 0
-				}
-			},
-			{
-				"@18b3cee9-8d13-4578-b4e9-eaf250e4cbc8": {
-					"AssetType": "Test",
-					"Name": "My Test",
-					"#ContextOid": "@38c17c5c-8ca1-4a08-9ca0-74622a703b48"
-				},
-				"error": {
-					"message": "Invalid OID token: @38c17c5c-8ca1-4a08-9ca0-74622a703b48",
-					"sourceCommandIndex": 0
-				}
-			},
-			{
-				"@a5f1e145-463e-41fc-aef8-eb9b320407b4": {
-					"AssetType": "Task",
-					"Name": "My Task",
-					"#ContextOid": "@38c17c5c-8ca1-4a08-9ca0-74622a703b48"
-				},
-				"error": {
-					"message": "Invalid OID token: @38c17c5c-8ca1-4a08-9ca0-74622a703b48",
-					"sourceCommandIndex": 0
-				}
-			}
-		],
-		"count": 4
-	},
-	"queryResult": {
-		"results": [],
-		"count": -1
-	}
+  "requestId": "adffb44e-f026-4fd2-94e3-d3e6cc8a0f52",
+  "createdDate": "2019-11-06T20:01:08.0040847Z",
+  "completedDate": "2019-11-06T20:01:08.0525809Z",
+  "duration": "00:00:00.0484962",
+  "durationSeconds": 0.048496199999999996,
+  "complete": true,
+  "processing": false,
+  "assetsCreated": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "assetsModified": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "assetsOperatedOn": {
+    "oidTokens": [],
+    "count": 0
+  },
+  "commandFailures": {
+    "commands": [
+      {
+        "@839e420a-f395-48ff-a522-4d7c9c8ce37e": {
+          "AssetType": "Epic",
+          "Scope": "Scope:9999",
+          "Name": "My Epic on a Scope that DOES NOT EXIST which will produce a cascade of four failures!"
+        },
+        "error": {
+          "message": "Violation'Invalid'Epic.Scope",
+          "sourceCommandIndex": 0
+        }
+      },
+      {
+        "@bf084e75-1263-476f-af99-fa8153bf7ebd": {
+          "AssetType": "Story",
+          "Name": "My Story",
+          "#ContextOid": "@839e420a-f395-48ff-a522-4d7c9c8ce37e"
+        },
+        "error": {
+          "message": "Invalid OID token: @839e420a-f395-48ff-a522-4d7c9c8ce37e",
+          "sourceCommandIndex": 0
+        }
+      },
+      {
+        "@4622a696-c001-414d-8749-fd620fd6a284": {
+          "AssetType": "Test",
+          "Name": "My Test",
+          "#ContextOid": "@bf084e75-1263-476f-af99-fa8153bf7ebd"
+        },
+        "error": {
+          "message": "Invalid OID token: @bf084e75-1263-476f-af99-fa8153bf7ebd",
+          "sourceCommandIndex": 0
+        }
+      },
+      {
+        "@b92be85b-5039-4a84-93b7-e602bee7ab4b": {
+          "AssetType": "Task",
+          "Name": "My Task",
+          "#ContextOid": "@bf084e75-1263-476f-af99-fa8153bf7ebd"
+        },
+        "error": {
+          "message": "Invalid OID token: @bf084e75-1263-476f-af99-fa8153bf7ebd",
+          "sourceCommandIndex": 0
+        }
+      }
+    ],
+    "count": 4
+  },
+  "queryResult": {
+    "results": [],
+    "count": -1
+  }
 }
 ```
 
