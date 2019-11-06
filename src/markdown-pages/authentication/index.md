@@ -20,7 +20,6 @@ curl "https://V1Host/V1Instance/api_endpoint_here"
   -H "Authorization: Bearer <access-token>"
 ```
 
-
 ![Application Page](./../../images/access-token.png)
 
 <aside class="notice">
@@ -28,3 +27,42 @@ curl "https://V1Host/V1Instance/api_endpoint_here"
     You can set your access token by clicking the avatar in the bottom left!
   </div>
 </aside>
+
+### Validating Your Access Token
+
+To validate that your access token is working prooperly, you can try an HTTP request like below.
+
+#### HTTP Request
+
+```bash
+curl 'https://V1Host/V1Instance/rest-1.v1/Data/Member?where=IsSelf="true"&sel=Username'
+  -H "Authorization:Bearer <access-token>"
+  -H "Accept:application/json"
+```
+
+#### HTTP Response
+
+You should get back a response similar to this:
+
+```json
+{
+   "_type":"Assets",
+   "total":1,
+   "pageSize":2147483647,
+   "pageStart":0,
+   "Assets":[
+      {
+         "_type":"Asset",
+         "href":"/V1Instance/rest-1.v1/Data/Member/20",
+         "id":"Member:20",
+         "Attributes":{
+            "Username":{
+               "_type":"Attribute",
+               "name":"Username",
+               "value":"admin"
+            }
+         }
+      }
+   ]
+}
+```
