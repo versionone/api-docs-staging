@@ -6,8 +6,15 @@ module.exports = [
   { title: 'operation', path: 'operation' },
   { title: 'update', path: 'update' },
   { title: 'updateMany', path: 'updateMany' },
-  { title: 'query', path: 'query' },
+  { title: 'query', path: 'query' },  
   { title: 'queryMany', path: 'queryMany' },
+  { title: 'Scope.AssignMemberWithRole single', path: 'execute_Scope_AssignMemberWithRole_single' },
   { title: 'Scope.AssignMemberWithRole list', path: 'execute_Scope_AssignMemberWithRole_list' },
-  { title: 'error: Nested cascading errors', path: 'error_cascading_failures' },
+  { title: 'Error: Nested cascading errors', path: 'error_cascading_failures' },
+  { title: 'Error: Query select unknown attribute', path: 'error_query_select_unknown_attribute' },
+  { title: 'Error: Invoke unknown operation', path: 'error_invoke_unknown_operation' },
+  { title: 'Error: Query unknown asset type', path: 'error_query_unknown_asset_type' },
+  { title: 'Error: Query where with unknown attribute', path: 'error_query_where_unknown_attribute' },
 ]
+
+
