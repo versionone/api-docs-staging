@@ -10,6 +10,8 @@ module.exports = [
   { title: 'queryMany', path: 'queryMany' },
   { title: 'Scope.AssignMemberWithRole single', path: 'execute_Scope_AssignMemberWithRole_single' },
   { title: 'Scope.AssignMemberWithRole list', path: 'execute_Scope_AssignMemberWithRole_list' },
+  { title: 'Member.AssignToScopeWithRole single', path: 'execute_Member_AssignToScopeWithRole_single' },
+  { title: 'Member.AssignToScopeWithRole list', path: 'execute_Member_AssignToScopeWithRole_list' },
   { title: 'Error: Nested cascading errors', path: 'error_cascading_failures' },
   { title: 'Error: Query select unknown attribute', path: 'error_query_select_unknown_attribute' },
   { title: 'Error: Invoke unknown operation', path: 'error_invoke_unknown_operation' },

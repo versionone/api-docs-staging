@@ -1,4 +1,4 @@
-## Execute Operation Scope.AssignMemberWithRole for list of Members by OID Token
+## Execute Scope.AssignMemberWithRole operation for list of Members
 
 Demonstrates how to use a single command to assign multiple Members to a Scope along with Scope-specific roles each Member will have for the target Scope.
 
@@ -26,7 +26,7 @@ For the context of this example, the following request will setup the instance w
     "AssetType": "Scope",
     "Name": "Project for List of Members",
     "Parent": "Scope:0",
-    "BeginDate": "2019-11-06T19:57:05.025Z"
+    "BeginDate": "2019-11-20T20:50:16.907Z"
   },
   {
     "AssetType": "Member",
@@ -58,17 +58,17 @@ The following request invokes the behavior:
 ##### Payload:
 ```json
 {
-  "from": "Scope:1268",
+  "from": "Scope:1070",
   "execute": {
     "op": "AssignMemberWithRole",
     "list": [
       {
-        "Member": "Member:1269",
+        "Member": "Member:1071",
         "Role": "Role:3",
         "IsOwner": true
       },
       {
-        "Member": "Member:1270",
+        "Member": "Member:1072",
         "Role": "Role:7",
         "IsOwner": false
       }
@@ -83,11 +83,11 @@ Expect a result similar to this:
 
 ```json
 {
-  "requestId": "aace8cb9-57fd-419f-9c2d-bf6c1092fd60",
-  "createdDate": "2019-11-06T19:57:05.2249874Z",
-  "completedDate": "2019-11-06T19:57:05.2709877Z",
-  "duration": "00:00:00.0460003",
-  "durationSeconds": 0.0460003,
+  "requestId": "fee67e0a-5bc8-4997-a531-c78c875b3029",
+  "createdDate": "2019-11-20T20:50:17.1563425Z",
+  "completedDate": "2019-11-20T20:50:17.188342Z",
+  "duration": "00:00:00.0319995",
+  "durationSeconds": 0.0319995,
   "complete": true,
   "processing": false,
   "assetsCreated": {
@@ -100,8 +100,8 @@ Expect a result similar to this:
   },
   "assetsOperatedOn": {
     "oidTokens": [
-      "Scope:1268",
-      "Scope:1268"
+      "Scope:1070",
+      "Scope:1070"
     ],
     "count": 2
   },
@@ -115,4 +115,6 @@ Expect a result similar to this:
   }
 }
 ```
+
+* Notice that the `assetsOperatedOn.oidTokens` array property contains the same token twice. This is because in this example we invoked the `Scope.AssignMemberWithRole` operation on the same scope, passing different member oids each time.
 

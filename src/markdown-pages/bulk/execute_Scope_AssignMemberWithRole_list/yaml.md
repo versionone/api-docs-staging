@@ -1,4 +1,4 @@
-## Execute Operation Scope.AssignMemberWithRole for list of Members by OID Token
+## Execute Scope.AssignMemberWithRole operation for list of Members
 
 Demonstrates how to use a single command to assign multiple Members to a Scope along with Scope-specific roles each Member will have for the target Scope.
 
@@ -23,7 +23,7 @@ execute: Delete
 AssetType: Scope
 Name: Project for List of Members
 Parent: Scope:0
-BeginDate: 2019-11-06T19:57:04.330Z
+BeginDate: 2019-11-20T20:50:16.638Z
 ---
 AssetType: Member
 Name: scopeListMember1
@@ -52,14 +52,14 @@ The following request invokes the behavior:
 ##### Payload:
 ```yaml
 
-from: Scope:1265
+from: Scope:1067
 execute:
  op: AssignMemberWithRole
  list:
- - Member: Member:1266
+ - Member: Member:1068
    Role: Role:3
    IsOwner: true
- - Member: Member:1267
+ - Member: Member:1069
    Role: Role:7
    IsOwner: false
 
@@ -71,11 +71,11 @@ Expect a result similar to this:
 
 ```json
 {
-  "requestId": "a9ed79a5-ce9b-4011-b0ce-0a68348894fe",
-  "createdDate": "2019-11-06T19:57:04.9039905Z",
-  "completedDate": "2019-11-06T19:57:04.9544909Z",
-  "duration": "00:00:00.0505004",
-  "durationSeconds": 0.0505004,
+  "requestId": "b2fa31a4-f5ef-4631-9495-538e2d5ad4da",
+  "createdDate": "2019-11-20T20:50:16.84034Z",
+  "completedDate": "2019-11-20T20:50:16.8663387Z",
+  "duration": "00:00:00.0259987",
+  "durationSeconds": 0.0259987,
   "complete": true,
   "processing": false,
   "assetsCreated": {
@@ -88,8 +88,8 @@ Expect a result similar to this:
   },
   "assetsOperatedOn": {
     "oidTokens": [
-      "Scope:1265",
-      "Scope:1265"
+      "Scope:1067",
+      "Scope:1067"
     ],
     "count": 2
   },
@@ -103,4 +103,6 @@ Expect a result similar to this:
   }
 }
 ```
+
+* Notice that the `assetsOperatedOn.oidTokens` array property contains the same token twice. This is because in this example we invoked the `Scope.AssignMemberWithRole` operation on the same scope, passing different member oids each time.
 
