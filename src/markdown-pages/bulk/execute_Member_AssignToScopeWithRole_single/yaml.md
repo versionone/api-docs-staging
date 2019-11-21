@@ -28,7 +28,7 @@ execute: Delete
 AssetType: Scope
 Name: Solo project for Member.AssignToScopeWithRole
 Parent: Scope:0
-BeginDate: 2019-11-20T20:51:00.126Z
+BeginDate: 2019-11-21T16:24:59.483Z
 ---
 AssetType: Member
 Name: memberForSoloScope
@@ -50,11 +50,11 @@ The following request invokes the behavior:
 ##### Payload:
 ```yaml
 
-from: Member:1080
+from: Member:1100
 execute:
  op: AssignToScopeWithRole
  args:
-  Scope: Scope:1079
+  Scope: Scope:1099
   Role: Role:3
   IsOwner: true
 
@@ -66,11 +66,11 @@ Expect a result similar to this:
 
 ```json
 {
-  "requestId": "e3c7550d-1a63-475c-87a9-6c21eb97b9a0",
-  "createdDate": "2019-11-20T20:51:00.3043712Z",
-  "completedDate": "2019-11-20T20:51:00.3153694Z",
-  "duration": "00:00:00.0109982",
-  "durationSeconds": 0.0109982,
+  "requestId": "d019d881-d7a0-4d29-8482-6e5796e62ebb",
+  "createdDate": "2019-11-21T16:25:00.0460598Z",
+  "completedDate": "2019-11-21T16:25:00.0775598Z",
+  "duration": "00:00:00.0315000",
+  "durationSeconds": 0.0315,
   "complete": true,
   "processing": false,
   "assetsCreated": {
@@ -83,7 +83,7 @@ Expect a result similar to this:
   },
   "assetsOperatedOn": {
     "oidTokens": [
-      "Member:1080"
+      "Member:1100"
     ],
     "count": 1
   },

@@ -1,4 +1,4 @@
-## undefined
+## Error: Query select unknown attribute
 
 Demonstrates how the API will return a failure when you attempt to invoke an unknown attribute definition on an asset.
 
@@ -29,11 +29,11 @@ Expect a result similar to this:
 
 ```json
 {
-  "requestId": "e0ea8cb8-5d88-49aa-b0ab-81dc27d821b4",
-  "createdDate": "2019-11-19T21:48:05.2069568Z",
-  "completedDate": "2019-11-19T21:48:05.2069568Z",
-  "duration": "00:00:00",
-  "durationSeconds": 0,
+  "requestId": "9a4b517a-06a3-407f-9ff1-551e0343e382",
+  "createdDate": "2019-11-21T15:26:14.0465326Z",
+  "completedDate": "2019-11-21T15:26:14.0495334Z",
+  "duration": "00:00:00.0030008",
+  "durationSeconds": 0.0030007999999999996,
   "complete": true,
   "processing": false,
   "assetsCreated": {

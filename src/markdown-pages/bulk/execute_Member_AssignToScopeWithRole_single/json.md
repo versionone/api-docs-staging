@@ -33,7 +33,7 @@ For the context of this example, the following request will setup the instance w
     "AssetType": "Scope",
     "Name": "Solo project for Member.AssignToScopeWithRole",
     "Parent": "Scope:0",
-    "BeginDate": "2019-11-20T20:51:00.341Z"
+    "BeginDate": "2019-11-21T16:25:00.131Z"
   },
   {
     "AssetType": "Member",
@@ -57,11 +57,11 @@ The following request invokes the behavior:
 ##### Payload:
 ```json
 {
-  "from": "Member:1082",
+  "from": "Member:1102",
   "execute": {
     "op": "AssignToScopeWithRole",
     "args": {
-      "Scope": "Scope:1081",
+      "Scope": "Scope:1101",
       "Role": "Role:3",
       "IsOwner": true
     }
@@ -75,11 +75,11 @@ Expect a result similar to this:
 
 ```json
 {
-  "requestId": "a136c5fb-4cdc-4ace-8e9e-826fade360fc",
-  "createdDate": "2019-11-20T20:51:00.505373Z",
-  "completedDate": "2019-11-20T20:51:00.5143698Z",
-  "duration": "00:00:00.0089968",
-  "durationSeconds": 0.0089968,
+  "requestId": "2a85553c-06ac-4832-a93b-5f65045a416f",
+  "createdDate": "2019-11-21T16:25:00.5825599Z",
+  "completedDate": "2019-11-21T16:25:00.67756Z",
+  "duration": "00:00:00.0950001",
+  "durationSeconds": 0.09500009999999999,
   "complete": true,
   "processing": false,
   "assetsCreated": {
@@ -92,7 +92,7 @@ Expect a result similar to this:
   },
   "assetsOperatedOn": {
     "oidTokens": [
-      "Member:1082"
+      "Member:1102"
     ],
     "count": 1
   },
